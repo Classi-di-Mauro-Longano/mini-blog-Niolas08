@@ -1,0 +1,168 @@
+/* eguals for all pages */
+p {
+    color: gray;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none; /* Rimuove la sottolineatura */
+    color: inherit; /* Imposta il colore del link uguale a quello del testo circostante (se desideri che sia lo stesso) */
+}
+
+rf {
+    color: blue; /* Imposta il colore del testo su blu */
+}
+
+rf svg path {
+    stroke: blue; /* Imposta il colore del tratto (stroke) degli SVG su blu */
+    fill: blue; /* Imposta il colore di riempimento (fill) degli SVG su blu */
+}
+
+
+.content {
+    margin: auto;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); /* Adjusts columns based on available space */
+    gap: 35px;
+    justify-content: center;
+}
+
+/* Menu a comparsa */
+.menu-toggle-checkbox {
+    display: none; /* Nascondi il checkbox */
+}
+
+/* Icona del menu (visibile solo su schermi piccoli) */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-toggle img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Header e posizionamento dell'immagine e del menu */
+header {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between; /* Spinge gli elementi ai bordi opposti */
+    align-items: center; /* Allinea verticalmente gli elementi al centro */
+}
+
+nav {
+    display: flex; /* Usa flexbox per controllare la disposizione degli elementi */
+    gap: 60px;
+    white-space: nowrap; /* Impedisce che il testo vada a capo */
+}
+
+
+.Optimizing {
+    display: grid;
+    grid-column: 1 / -1; /* Make the element span all columns */
+    gap: 10px; 
+}
+
+.Css_Grid, .Color_in_CSS, .Css_Variables {
+    width: 330px; 
+    gap: 1px; 
+}
+
+
+.Optimizing, .Css_Grid, .Color_in_CSS, .Css_Variables {
+    padding: 10px; /* Add spaziatura around the element */
+    border: 1px solid rgba(128, 128, 128, 0.142);
+    border-radius: 2%; /* curva gli angoli */
+}
+
+
+
+/* mobile layout */
+@media (max-width: 730px) {
+
+    header {
+        width: 350px;
+    }
+
+    /* Icona del menu a hamburger */
+    .menu-toggle {
+        display: block; /* Mostra l'icona dell'hamburger */
+        cursor: pointer;
+    }
+
+    /* Nascondi il menu di navigazione */
+    nav {
+        display: none;  /* Menu nascosto */
+    }
+
+    /* Quando il checkbox è selezionato, mostra il menu */
+    .menu-toggle-checkbox:checked + .menu-toggle + #nav-menu {
+        display: block; /* Mostra il menu */
+    }
+
+    /* Le voci del menu si dispongono una sotto l'altra */
+    nav span {
+        display: block; /* Ogni voce del menu prende una riga intera */
+        padding: 10px;
+        border-bottom: 1px solid #ddd;  /* bordo tra gli elementi */
+    }
+
+    nav span a {
+        display: block;
+        color: black;
+        text-decoration: none;
+    }
+
+    .Optimizing img {
+        width: 330px; 
+    }
+
+    .Optimizing {
+        width: 330px;
+    }
+
+}
+
+/*medium layout*/
+@media (min-width: 730px) and (max-width: 1221px) {
+    .content{
+        width: 695px;
+    }
+
+    .Optimizing img {
+        width: 695px;
+    }
+
+    .Optimizing {
+        width: 695px;
+    }
+
+    .menu-toggle {
+        display: none; /* Nascondiamo l'icona del menu nei dispositivi medi */
+    }
+}
+
+/*large layout*/
+@media (min-width: 1221px) {
+    .content{
+        grid-template-columns: repeat(3, 1fr); /* Massimo 3 colonne */
+        width: 1190px;
+        gap: 68px;
+    }
+
+    .Optimizing img {
+        width: 695px;
+    }
+
+    .Optimizing {
+        grid-template-columns: 1fr 1fr; /* Two columns when screen is large */
+        grid-template-rows: auto auto auto; /* Ensure three rows */
+    }
+
+    .menu-toggle {
+        display: none; /* Nascondiamo l'icona del menu sui dispositivi più grandi */
+    }
+
+}
